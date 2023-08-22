@@ -54,7 +54,7 @@ func decode<T: Decodable, D>(code: Int, data: String, cc: (T) -> D) throws -> D 
     }
 }
 
-class FibaroAPI {
+public class FibaroAPI {
     var hc3: HC3Utilities
 
     func getGlobalVariable(name: String) throws -> (String, Int) {
@@ -88,7 +88,7 @@ class FibaroAPI {
     init(hc3: HC3Utilities) { self.hc3 = hc3 }
 }
 
-struct HC3Utilities {
+public struct HC3Utilities {
     var baseURL: String
     var creds: String
     lazy var fibaro: FibaroAPI = FibaroAPI(hc3: self)
