@@ -307,7 +307,7 @@ extension HC3Utilities {
             case string(String)
             case double(Double)
             
-            init(from decoder: Decoder) throws {
+            public init(from decoder: Decoder) throws {
                 let container = try decoder.singleValueContainer()
                 if let x = try? container.decode(Bool.self) {
                     self = .bool(x)
@@ -328,7 +328,7 @@ extension HC3Utilities {
                 throw DecodingError.typeMismatch(Value.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Value"))
             }
             
-            func encode(to encoder: Encoder) throws {
+            public func encode(to encoder: Encoder) throws {
                 var container = encoder.singleValueContainer()
                 switch self {
                 case .bool(let x):
@@ -386,7 +386,7 @@ extension HC3Utilities {
             case bool(Bool)
             case double(Double)
             
-            init(from decoder: Decoder) throws {
+            public init(from decoder: Decoder) throws {
                 let container = try decoder.singleValueContainer()
                 if let x = try? container.decode(Bool.self) {
                     self = .bool(x)
@@ -399,7 +399,7 @@ extension HC3Utilities {
                 throw DecodingError.typeMismatch(Power.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Power"))
             }
             
-            func encode(to encoder: Encoder) throws {
+            public func encode(to encoder: Encoder) throws {
                 var container = encoder.singleValueContainer()
                 switch self {
                 case .bool(let x):
@@ -645,7 +645,7 @@ extension HC3Utilities {
             var remoteGatewayId: Int?
             var created, modified, sortOrder: Int
             
-            static func == (lhs: Device, rhs: Device) -> Bool {
+            public static func == (lhs: Device, rhs: Device) -> Bool {
                 return (lhs.id == rhs.id)
             }
         }
@@ -722,7 +722,7 @@ extension HC3Utilities {
             var remoteGatewayId: Int?
             var created, modified, sortOrder: Int
             
-            static func == (lhs: DeviceSimple, rhs: DeviceSimple) -> Bool {
+            public static func == (lhs: DeviceSimple, rhs: DeviceSimple) -> Bool {
                 return (lhs.id == rhs.id)
             }
         }
