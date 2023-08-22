@@ -13,7 +13,7 @@ import Foundation
 
 extension HC3Utilities {
     public enum types {
-        class JSONNull: Codable, Hashable {
+        public class JSONNull: Codable, Hashable {
             
             public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
                 return true
@@ -66,7 +66,7 @@ extension HC3Utilities {
             }
         }
         
-        class JSONAny: Codable {
+        public class JSONAny: Codable {
             
             let value: Any
             
@@ -262,7 +262,7 @@ extension HC3Utilities {
         }
         
         // MARK: - QuickAppVariable
-        struct QuickAppVariable: Codable, Equatable {
+        public struct QuickAppVariable: Codable, Equatable {
             var name: String
             var value: JSONAny
             
@@ -273,35 +273,35 @@ extension HC3Utilities {
         }
         
         // MARK: - FavoritePosition
-        struct FavoritePosition: Codable, Hashable {
+        public struct FavoritePosition: Codable, Hashable {
             var name, label: String?
             var value: Int?
         }
         
         // MARK: - Icon
-        struct Icon: Codable, Hashable {
+        public struct Icon: Codable, Hashable {
             var path, source, overlay: String?
         }
         
         // MARK: - UICallbacks
-        struct UICallbacks : Codable, Hashable {
+        public struct UICallbacks : Codable, Hashable {
             var callback, eventType, name : String
         }
         
         // MARK: - DeviceParameter
-        struct DeviceParameter : Codable, Hashable {
+        public struct DeviceParameter : Codable, Hashable {
             var lastReportedValue, size, lastSetValue, id, value: Int?
             var readyOnly,setDefault : Bool?
         }
         
         // MARK: - CentralSceneSupport
-        struct CentralSceneSupport : Codable, Hashable {
+        public struct CentralSceneSupport : Codable, Hashable {
             var keyAttributes : [String]
             var keyId : Int
         }
         
         // MARK: - Value
-        enum Value: Codable, Hashable {
+        public enum Value: Codable, Hashable {
             case bool(Bool)
             case integer(Int)
             case string(String)
@@ -382,7 +382,7 @@ extension HC3Utilities {
         
         
         // MARK: - Power
-        enum Power: Codable, Hashable {
+        public enum Power: Codable, Hashable {
             case bool(Bool)
             case double(Double)
             
@@ -411,7 +411,7 @@ extension HC3Utilities {
         }
         
         // MARK: - Properties
-        struct Properties: Codable {
+        public struct Properties: Codable {
             var alarmLevel : Int?
             var alarmType : Int?
             var armed : Bool?
@@ -630,7 +630,7 @@ extension HC3Utilities {
             var encrypted : Bool?
         }
         
-        struct Device : Codable, Equatable {
+        public struct Device : Codable, Equatable {
             var id: Int
             var name: String
             var roomID: Int
@@ -651,7 +651,7 @@ extension HC3Utilities {
         }
         
         // MARK: - PropertiesSimple
-        struct PropertiesSimple: Codable {
+        public struct PropertiesSimple: Codable {
             var armed : Bool?
             var batteryLevel : Int?
             var categories : [String]?
@@ -707,7 +707,7 @@ extension HC3Utilities {
             var quickAppVariables : [QuickAppVariable]?
         }
         
-        struct DeviceSimple : Codable, Equatable {
+        public struct DeviceSimple : Codable, Equatable {
             var id: Int
             var name: String
             var roomID: Int
@@ -729,7 +729,7 @@ extension HC3Utilities {
         
         
         // MARK: - GlobalVariable
-        struct GlobalVariable: Codable, Hashable {
+        public struct GlobalVariable: Codable, Hashable {
             var name, value: String
             var readOnly, isEnum: Bool
             var enumValues: [String]
