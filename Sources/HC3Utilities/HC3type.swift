@@ -12,7 +12,7 @@ import Foundation
 // MARK: - Encode/decode helpers
 
 extension HC3Utilities {
-    enum types {
+    public enum types {
         class JSONNull: Codable, Hashable {
             
             public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
