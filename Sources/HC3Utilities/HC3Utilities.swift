@@ -57,28 +57,28 @@ func decode<T: Decodable, D>(code: Int, data: String, cc: (T) -> D) throws -> D 
 public class FibaroAPI {
     var hc3: HC3Utilities
 
-    func getGlobalVariable(name: String) throws -> (String, Int) {
+    public func getGlobalVariable(name: String) throws -> (String, Int) {
         let (code,_,data) = hc3.httpGet(path: "/globalVariables/\(name)")
         return try decode(code:code,data:data) { (d: HC3Utilities.types.GlobalVariable) -> (String, Int) in
             return (d.value,d.modified)
         }
     }
 
-    func getGlobalVariables() throws -> [HC3Utilities.types.GlobalVariable] {
+    public func getGlobalVariables() throws -> [HC3Utilities.types.GlobalVariable] {
         let (code,_,data) = hc3.httpGet(path: "/globalVariables/")
         return try decode(code:code,data:data) { (d: [HC3Utilities.types.GlobalVariable]) -> [HC3Utilities.types.GlobalVariable] in
             return d
         }
     }
     
-    func getDevice(deviceId: Int) throws -> HC3Utilities.types.Device {
+    public func getDevice(deviceId: Int) throws -> HC3Utilities.types.Device {
         let (code,_,data) = hc3.httpGet(path: "/devices/\(deviceId)")
         return try decode(code:code,data:data) { (d: HC3Utilities.types.Device) -> HC3Utilities.types.Device in
             return d
         }
     }
     
-    func getDevices(query: String = "") throws -> [HC3Utilities.types.Device] {
+    public func getDevices(query: String = "") throws -> [HC3Utilities.types.Device] {
         let (code,_,data) = hc3.httpGet(path: "/devices" + (query == "" ? "" : "?"+query))
         return try decode(code:code,data:data) { (d: [HC3Utilities.types.Device]) -> [HC3Utilities.types.Device] in
             return d
