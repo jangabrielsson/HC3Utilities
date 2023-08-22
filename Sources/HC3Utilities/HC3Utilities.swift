@@ -93,7 +93,7 @@ public struct HC3Utilities {
     var creds: String
     lazy var fibaro: FibaroAPI = FibaroAPI(hc3: self)
     
-    init(ip: String, user: String, password: String) {
+    public init(ip: String, user: String, password: String) {
         let loginData = "\(user):\(password)"
         creds = (loginData.data(using: .utf8)?.base64EncodedString())!
         creds = "Basic " + creds
