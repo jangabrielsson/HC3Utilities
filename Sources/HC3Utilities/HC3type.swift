@@ -263,8 +263,8 @@ public extension HC3Utilities {
         
         // MARK: - QuickAppVariable
         public struct QuickAppVariable: Codable, Equatable {
-            var name: String
-            var value: JSONAny
+            public var name: String
+            public var value: JSONAny
             
             public static func == (lhs: QuickAppVariable, rhs: QuickAppVariable) -> Bool {
                 return lhs.name == rhs.name
@@ -274,30 +274,30 @@ public extension HC3Utilities {
         
         // MARK: - FavoritePosition
         public struct FavoritePosition: Codable, Hashable {
-            var name, label: String?
-            var value: Int?
+            public var name, label: String?
+            public var value: Int?
         }
         
         // MARK: - Icon
         public struct Icon: Codable, Hashable {
-            var path, source, overlay: String?
+            public var path, source, overlay: String?
         }
         
         // MARK: - UICallbacks
         public struct UICallbacks : Codable, Hashable {
-            var callback, eventType, name : String
+            public var callback, eventType, name : String
         }
         
         // MARK: - DeviceParameter
         public struct DeviceParameter : Codable, Hashable {
-            var lastReportedValue, size, lastSetValue, id, value: Int?
-            var readyOnly,setDefault : Bool?
+            public var lastReportedValue, size, lastSetValue, id, value: Int?
+            public var readyOnly,setDefault : Bool?
         }
         
         // MARK: - CentralSceneSupport
         public struct CentralSceneSupport : Codable, Hashable {
-            var keyAttributes : [String]
-            var keyId : Int
+            public var keyAttributes : [String]
+            public var keyId : Int
         }
         
         // MARK: - Value
@@ -342,7 +342,7 @@ public extension HC3Utilities {
                 }
             }
             
-            func getInt() -> Int {
+            public func getInt() -> Int {
                 switch self {
                 case .integer(let num):
                     return num
@@ -351,7 +351,7 @@ public extension HC3Utilities {
                 }
             }
             
-            func getDouble() -> Double {
+            public func getDouble() -> Double {
                 switch self {
                 case .double(let num):
                     return num
@@ -360,7 +360,7 @@ public extension HC3Utilities {
                 }
             }
             
-            func getBool() -> Bool {
+            public func getBool() -> Bool {
                 switch self {
                 case .bool(let b):
                     return b
@@ -369,7 +369,7 @@ public extension HC3Utilities {
                 }
             }
             
-            func getString() -> String {
+            public func getString() -> String {
                 switch self {
                 case .string(let str):
                     return str
@@ -412,238 +412,238 @@ public extension HC3Utilities {
         
         // MARK: - Properties
         public struct Properties: Codable {
-            var alarmLevel : Int?
-            var alarmType : Int?
-            var armed : Bool?
-            //var zwaveResources [ResourceTypeDto{...}
+            public var alarmLevel : Int?
+            public var alarmType : Int?
+            public var armed : Bool?
+            //public var zwaveResources [ResourceTypeDto{...}
             // example: OrderedMap { "name": "MultilevelSensor", "type": 1, "scales": List [ 3 ], "rateType": 1 }]
-            var associationMode : Int?
-            var availableDoorLockModes : [String]?
+            public var associationMode : Int?
+            public var availableDoorLockModes : [String]?
             // Enum:
             // [ Unsecured, UnsecuredWithTimeout, UnsecuredFromInside, UnsecuredFromInsideWithTimeout, UnsecuredFromOutside, UnsecuredFromOutsideWithTimeout, Unknown, Secured ]
-            var availablePositions : [[String : String]]?
-            var availableScenes : [[String: Int]]?
-            var batteryLevel : Int?
-            var batteryLowNotification : Bool?
-            // var blackBox BlackBoxDto{...}
+            public var availablePositions : [[String : String]]?
+            public var availableScenes : [[String: Int]]?
+            public var batteryLevel : Int?
+            public var batteryLowNotification : Bool?
+            // public var blackBox BlackBoxDto{...}
             // example: OrderedMap { "fileName": "fileName", "state": "Empty", "timestamp": 0 }
-            var buttonHold : Int?
-            var buttonsType : String?
-            var currentHumidity : Int?
-            var showFreezeAlarm : Bool?
-            var showFireAlarm : Bool?
-            var buttonType : Int?
+            public var buttonHold : Int?
+            public var buttonsType : String?
+            public var currentHumidity : Int?
+            public var showFreezeAlarm : Bool?
+            public var showFireAlarm : Bool?
+            public var buttonType : Int?
             // anyOf -> String, Int?
-            var motorInversion : Bool?
-            var steeringInversion : Bool?
-            var movingUpTime : Int?
-            var movingDownTime : Int?
-            var slatsRotationTime : Int?
-            var virtualBottomLimit : Int?
-            var cameraType : Int?
-            var categories : [String]?
-            var calibrationVariants : [String]?
+            public var motorInversion : Bool?
+            public var steeringInversion : Bool?
+            public var movingUpTime : Int?
+            public var movingDownTime : Int?
+            public var slatsRotationTime : Int?
+            public var virtualBottomLimit : Int?
+            public var cameraType : Int?
+            public var categories : [String]?
+            public var calibrationVariants : [String]?
             // example: List [ "dimmerCalibrationWithBypass", "dimmerCalibrationWithoutBypass" ]
-            var calibrated : Bool?
-            var centralSceneSupport : [CentralSceneSupport]?
-            var channel1 : String?
-            var channel2 : String?
-            var channel3 : String?
-            var channel4 : String?
-            var climateZoneHash : String?
-            var climateZoneId : Int?
-            var configured : Bool?
-            var dead : Bool?
-            var position : String?
-            var port : Double?
-            var strategy : String?
-            var deadReason : String?
-            var defInterval : Int?
-            var defaultPartyTime : Int?
-            var defaultTone : Int?
-            var defaultWateringTime : Int?
-            var deviceControlType : Int?
-            var deviceRole : String?
-            var supportedDeviceRoles : [String]?
-            var deviceGroup : [Int]?
-            var deviceGroupMaster : Int?
-            var deviceIcon : Int?
-            var devices : [Int]?
-            var devicesInitializationProcess : String?
-            var DeviceUID : String?
-            var displayOnMainPage : Int?
-            var doorLockMode : String?
-            var emailNotificationID : Int?
-            var emailNotificationType : Int?
-            var endPointId : Int?
-            var externalSensorConnected : Bool?
-            var favoritePositionsNativeSupport : Bool?
-            var favoritePositions : [FavoritePosition]?
-            var fgrgbwMode : String?
-            var fidUuid : String?
-            var fidLastSynchronizationTimestamp : Int?
-            var fidRole : String?
-            //var firmwareUpdate DeviceFirmwareUpdateDto{...}
+            public var calibrated : Bool?
+            public var centralSceneSupport : [CentralSceneSupport]?
+            public var channel1 : String?
+            public var channel2 : String?
+            public var channel3 : String?
+            public var channel4 : String?
+            public var climateZoneHash : String?
+            public var climateZoneId : Int?
+            public var configured : Bool?
+            public var dead : Bool?
+            public var position : String?
+            public var port : Double?
+            public var strategy : String?
+            public var deadReason : String?
+            public var defInterval : Int?
+            public var defaultPartyTime : Int?
+            public var defaultTone : Int?
+            public var defaultWateringTime : Int?
+            public var deviceControlType : Int?
+            public var deviceRole : String?
+            public var supportedDeviceRoles : [String]?
+            public var deviceGroup : [Int]?
+            public var deviceGroupMaster : Int?
+            public var deviceIcon : Int?
+            public var devices : [Int]?
+            public var devicesInitializationProcess : String?
+            public var DeviceUID : String?
+            public var displayOnMainPage : Int?
+            public var doorLockMode : String?
+            public var emailNotificationID : Int?
+            public var emailNotificationType : Int?
+            public var endPointId : Int?
+            public var externalSensorConnected : Bool?
+            public var favoritePositionsNativeSupport : Bool?
+            public var favoritePositions : [FavoritePosition]?
+            public var fgrgbwMode : String?
+            public var fidUuid : String?
+            public var fidLastSynchronizationTimestamp : Int?
+            public var fidRole : String?
+            //public var firmwareUpdate DeviceFirmwareUpdateDto{...}
             // example: OrderedMap { "updateVersion": "updateVersion", "progress": 5, "info": "info", "status": "status" }
-            var gatewayId : String?
-            var humidityThreshold : Int?
-            var httpsEnabled : Bool?
-            var icon : Icon?
-            var includeInEnergyPanel : Bool?
-            //var inputToChannelMap DeviceInputToChannelMapDto{...}
+            public var gatewayId : String?
+            public var humidityThreshold : Int?
+            public var httpsEnabled : Bool?
+            public var icon : Icon?
+            public var includeInEnergyPanel : Bool?
+            //public var inputToChannelMap DeviceInputToChannelMapDto{...}
             // example: OrderedMap { "close": List [ 4 ], "open": List [], "partialOpen1": List [], "step": List [ 1, 3 ], "stop": List [ 5 ] }
-            var ip : String?
-            var isLight : Bool?
-            var jpgPath : String?
-            var lastBreached : Double?
-            var lastHealthy : Double?
-            var lastLoggedUser : Double?
-            var lastModerate : Double?
-            var liliOffCommand : String?
-            var liliOnCommand : String?
-            var linkedDeviceType : String?
-            var localProtectionState : Int?
-            var localProtectionSupport : Int?
-            var log : String?
-            var logTemp : String?
-            var manufacturer : String?
-            var markAsDead : Bool?
-            var maxInterval : Int?
-            var maxUsers : Int?
-            var maxValue : Int?
-            var maxVoltage : Int?
-            var minInterval : Int?
-            var minValue : Int?
-            var minVoltage : Int?
-            var mjpgPath : String?
-            var mode : Double?
-            var model : String?
-            var moveDownPath : String?
-            var moveLeftPath : String?
-            var moveRightPath : String?
-            var moveStopPath : String?
-            var moveUpPath : String?
-            var networkStatus : String?
-            var niceId : Int?
-            var niceProtocol : String?
-            var nodeId : Int?
-            var numberOfSupportedButtons : Int?
-            var offset : Int?
-            var output1Id : Double?
-            var output2Id : Double?
-            var panicMode : Bool?
-            var parameters : [DeviceParameter]?
-            var parametersTemplate : Value?
-            var password : String?
-            var pendingActions : Bool?
-            var pollingDeadDevice : Bool?
-            var pollingInterval : Double?
-            var pollingTimeSec : Int?
-            var power : Power?
-            var productInfo : String?
-            var protectionExclusiveControl : Int?
-            //        //var protectionExclusiveControlSupport : Number?
-            var protectionState : Int?
-            var protectionTimeout : Double?
-            var protectionTimeoutSupport : Bool?
-            var pushNotificationID : Int?
-            var pushNotificationType : Double?
-            var rateType : String?
-            var refreshTime : Int?
-            var remoteId : Int?
-            var remoteGatewayId : Int?
-            var RFProtectionState : Int?
-            var RFProtectionSupport : Int?
-            var rtspPath : String?
-            var rtspPort : Int?
-            var saveLogs : Bool?
-            var slatsRange : Int?
-            var slatsRangeMin : Int?
-            var slatsRangeMax : Int?
-            var storeEnergyData : Bool?
-            var saveToEnergyPanel : Bool?
-            // var schedules [...]
-            var securityLevel : String?
-            var securitySchemes : [String]?
-            var sendStopAfterMove : Bool?
-            var serialNumber : String?
-            var showEnergy : Bool?
-            var state : Value?
+            public var ip : String?
+            public var isLight : Bool?
+            public var jpgPath : String?
+            public var lastBreached : Double?
+            public var lastHealthy : Double?
+            public var lastLoggedUser : Double?
+            public var lastModerate : Double?
+            public var liliOffCommand : String?
+            public var liliOnCommand : String?
+            public var linkedDeviceType : String?
+            public var localProtectionState : Int?
+            public var localProtectionSupport : Int?
+            public var log : String?
+            public var logTemp : String?
+            public var manufacturer : String?
+            public var markAsDead : Bool?
+            public var maxInterval : Int?
+            public var maxUsers : Int?
+            public var maxValue : Int?
+            public var maxVoltage : Int?
+            public var minInterval : Int?
+            public var minValue : Int?
+            public var minVoltage : Int?
+            public var mjpgPath : String?
+            public var mode : Double?
+            public var model : String?
+            public var moveDownPath : String?
+            public var moveLeftPath : String?
+            public var moveRightPath : String?
+            public var moveStopPath : String?
+            public var moveUpPath : String?
+            public var networkStatus : String?
+            public var niceId : Int?
+            public var niceProtocol : String?
+            public var nodeId : Int?
+            public var numberOfSupportedButtons : Int?
+            public var offset : Int?
+            public var output1Id : Double?
+            public var output2Id : Double?
+            public var panicMode : Bool?
+            public var parameters : [DeviceParameter]?
+            public var parametersTemplate : Value?
+            public var password : String?
+            public var pendingActions : Bool?
+            public var pollingDeadDevice : Bool?
+            public var pollingInterval : Double?
+            public var pollingTimeSec : Int?
+            public var power : Power?
+            public var productInfo : String?
+            public var protectionExclusiveControl : Int?
+            //        //public var protectionExclusiveControlSupport : Number?
+            public var protectionState : Int?
+            public var protectionTimeout : Double?
+            public var protectionTimeoutSupport : Bool?
+            public var pushNotificationID : Int?
+            public var pushNotificationType : Double?
+            public var rateType : String?
+            public var refreshTime : Int?
+            public var remoteId : Int?
+            public var remoteGatewayId : Int?
+            public var RFProtectionState : Int?
+            public var RFProtectionSupport : Int?
+            public var rtspPath : String?
+            public var rtspPort : Int?
+            public var saveLogs : Bool?
+            public var slatsRange : Int?
+            public var slatsRangeMin : Int?
+            public var slatsRangeMax : Int?
+            public var storeEnergyData : Bool?
+            public var saveToEnergyPanel : Bool?
+            // public var schedules [...]
+            public var securityLevel : String?
+            public var securitySchemes : [String]?
+            public var sendStopAfterMove : Bool?
+            public var serialNumber : String?
+            public var showEnergy : Bool?
+            public var state : Value?
             // anyOf -> Bool, Int, String
-            var energy : Double?
-            var sipUserPassword : String?
-            var sipDisplayName : String?
-            var sipUserID : String?
-            var sipUserEnabled : Bool?
-            var smsNotificationID : Int?
-            var smsNotificationType : Double?
-            var softwareVersion : String?
-            var stepInterval : Double?
-            var supportedThermostatFanModes : [String]?
-            var supportedThermostatModes : [String]?
-            // var supportedTones [{...}]
-            var tamperMode : String?
-            var targetLevel : Double?
-            var targetLevelDry : Double?
-            var targetLevelHumidify : Double?
-            var targetLevelMax : Double?
-            var targetLevelMin : Double?
-            var targetLevelStep : Double?
-            var targetLevelTimestamp : Double?
-            var thermostatFanMode : String?
-            var thermostatFanOff : Bool?
-            var thermostatFanState : String?
-            var thermostatMode : String?
-            var thermostatModeFuture : String?
-            var thermostatOperatingState : String?
-            var thermostatModeManufacturerData : [Int]?
-            var thermostatState : String?
-            var powerConsumption : Double?
-            var timestamp : Int?
-            var tone : Int?
-            var unit : String?
-            var updateVersion : String?
-            var useTemplate : Bool?
-            //var userCodes [UserCodeDto{...}
+            public var energy : Double?
+            public var sipUserPassword : String?
+            public var sipDisplayName : String?
+            public var sipUserID : String?
+            public var sipUserEnabled : Bool?
+            public var smsNotificationID : Int?
+            public var smsNotificationType : Double?
+            public var softwareVersion : String?
+            public var stepInterval : Double?
+            public var supportedThermostatFanModes : [String]?
+            public var supportedThermostatModes : [String]?
+            // public var supportedTones [{...}]
+            public var tamperMode : String?
+            public var targetLevel : Double?
+            public var targetLevelDry : Double?
+            public var targetLevelHumidify : Double?
+            public var targetLevelMax : Double?
+            public var targetLevelMin : Double?
+            public var targetLevelStep : Double?
+            public var targetLevelTimestamp : Double?
+            public var thermostatFanMode : String?
+            public var thermostatFanOff : Bool?
+            public var thermostatFanState : String?
+            public var thermostatMode : String?
+            public var thermostatModeFuture : String?
+            public var thermostatOperatingState : String?
+            public var thermostatModeManufacturerData : [Int]?
+            public var thermostatState : String?
+            public var powerConsumption : Double?
+            public var timestamp : Int?
+            public var tone : Int?
+            public var unit : String?
+            public var updateVersion : String?
+            public var useTemplate : Bool?
+            //public var userCodes [UserCodeDto{...}
             // example: OrderedMap { "id": 0, "name": "User 1", "status": "Occupied", "update": "Ok" }]
-            var userDescription : String?
-            var username : String?
-            var wakeUpTime : Double?
-            var zwaveCompany : String?
-            var zwaveInfo : String?
-            // var zwaveScheduleClimatePanelCompatibileBlocks [{...}]
-            var zwaveVersion : String?
-            var value : Value?
+            public var userDescription : String?
+            public var username : String?
+            public var wakeUpTime : Double?
+            public var zwaveCompany : String?
+            public var zwaveInfo : String?
+            // public var zwaveScheduleClimatePanelCompatibileBlocks [{...}]
+            public var zwaveVersion : String?
+            public var value : Value?
             // anyOf -> Int, Bool, String
-            var viewLayout : JSONAny?
-            var volume : Int?
-            var mainFunction : String?
-            var uiCallbacks : [UICallbacks]?
-            var quickAppVariables : [QuickAppVariable]?
-            // var colorComponents {
-            var walliOperatingMode : String?
-            var ringUpperColor : String?
-            var ringBottomColor : String?
-            var ringBrightness : Double?
-            var ringLightMode : String?
-            var ringConfirmingTime : Double?
-            var encrypted : Bool?
+            public var viewLayout : JSONAny?
+            public var volume : Int?
+            public var mainFunction : String?
+            public var uiCallbacks : [UICallbacks]?
+            public var quickAppVariables : [QuickAppVariable]?
+            // public var colorComponents {
+            public var walliOperatingMode : String?
+            public var ringUpperColor : String?
+            public var ringBottomColor : String?
+            public var ringBrightness : Double?
+            public var ringLightMode : String?
+            public var ringConfirmingTime : Double?
+            public var encrypted : Bool?
         }
         
         public struct Device : Codable, Equatable {
-            var id: Int
-            var name: String
-            var roomID: Int
-            var view: [JSONAny]
-            var type, baseType: String
-            var interfaces: [String]
-            var enabled, visible, isPlugin: Bool
-            var parentId: Int
-            var viewXml, hasUIView, configXml: Bool
-            var properties: Properties
-            var actions: [String: Int]
-            var remoteGatewayId: Int?
-            var created, modified, sortOrder: Int
+            public var id: Int
+            public var name: String
+            public var roomID: Int
+            public var view: [JSONAny]
+            public var type, baseType: String
+            public var interfaces: [String]
+            public var enabled, visible, isPlugin: Bool
+            public var parentId: Int
+            public var viewXml, hasUIView, configXml: Bool
+            public var properties: Properties
+            public var actions: [String: Int]
+            public var remoteGatewayId: Int?
+            public var created, modified, sortOrder: Int
             
             public static func == (lhs: Device, rhs: Device) -> Bool {
                 return (lhs.id == rhs.id)
@@ -652,75 +652,75 @@ public extension HC3Utilities {
         
         // MARK: - PropertiesSimple
         public struct PropertiesSimple: Codable {
-            var armed : Bool?
-            var batteryLevel : Int?
-            var categories : [String]?
+            public var armed : Bool?
+            public var batteryLevel : Int?
+            public var categories : [String]?
             //var centralSceneSupport : [CentralSceneSupport]?
-            var dead : Bool?
-            var position : String?
-            var deadReason : String?
-            var deviceControlType : Int?
-            var deviceRole : String?
-            var icon : Icon?
-            var includeInEnergyPanel : Bool?
-            var isLight : Bool?
-            var jpgPath : String?
-            var lastBreached : Double?
-            var lastHealthy : Double?
-            var lastLoggedUser : Double?
-            var log : String?
-            var logTemp : String?
-            var manufacturer : String?
-            var markAsDead : Bool?
-            var model : String?
-            var power : Power?
-            var productInfo : String?
-            var rateType : String?
-            var storeEnergyData : Bool?
-            var saveToEnergyPanel : Bool?
-            var serialNumber : String?
-            var showEnergy : Bool?
-            var state : Value?
-            var energy : Double?
-            var softwareVersion : String?
-            var thermostatFanMode : String?
-            var thermostatFanOff : Bool?
-            var thermostatFanState : String?
-            var thermostatMode : String?
-            var thermostatModeFuture : String?
-            var thermostatOperatingState : String?
-            var thermostatModeManufacturerData : [Int]?
-            var thermostatState : String?
-            var powerConsumption : Double?
-            var timestamp : Int?
-            var unit : String?
-            var updateVersion : String?
-            var useTemplate : Bool?
-            var userDescription : String?
-            var wakeUpTime : Double?
-            var zwaveCompany : String?
-            var zwaveInfo : String?
-            var zwaveVersion : String?
-            var value : Value?
-            var volume : Int?
-            var uiCallbacks : [UICallbacks]?
-            var quickAppVariables : [QuickAppVariable]?
+            public var dead : Bool?
+            public var position : String?
+            public var deadReason : String?
+            public var deviceControlType : Int?
+            public var deviceRole : String?
+            public var icon : Icon?
+            public var includeInEnergyPanel : Bool?
+            public var isLight : Bool?
+            public var jpgPath : String?
+            public var lastBreached : Double?
+            public var lastHealthy : Double?
+            public var lastLoggedUser : Double?
+            public var log : String?
+            public var logTemp : String?
+            public var manufacturer : String?
+            public var markAsDead : Bool?
+            public var model : String?
+            public var power : Power?
+            public var productInfo : String?
+            public var rateType : String?
+            public var storeEnergyData : Bool?
+            public var saveToEnergyPanel : Bool?
+            public var serialNumber : String?
+            public var showEnergy : Bool?
+            public var state : Value?
+            public var energy : Double?
+            public var softwareVersion : String?
+            public var thermostatFanMode : String?
+            public var thermostatFanOff : Bool?
+            public var thermostatFanState : String?
+            public var thermostatMode : String?
+            public var thermostatModeFuture : String?
+            public var thermostatOperatingState : String?
+            public var thermostatModeManufacturerData : [Int]?
+            public var thermostatState : String?
+            public var powerConsumption : Double?
+            public var timestamp : Int?
+            public var unit : String?
+            public var updateVersion : String?
+            public var useTemplate : Bool?
+            public var userDescription : String?
+            public var wakeUpTime : Double?
+            public var zwaveCompany : String?
+            public var zwaveInfo : String?
+            public var zwaveVersion : String?
+            public var value : Value?
+            public var volume : Int?
+            public var uiCallbacks : [UICallbacks]?
+            public var quickAppVariables : [QuickAppVariable]?
         }
         
         public struct DeviceSimple : Codable, Equatable {
-            var id: Int
-            var name: String
-            var roomID: Int
-            var view: [JSONAny]
-            var type, baseType: String
-            var interfaces: [String]
-            var enabled, visible, isPlugin: Bool
-            var parentId: Int
-            var viewXml, hasUIView, configXml: Bool
-            var properties: PropertiesSimple
-            var actions: [String: Int]
-            var remoteGatewayId: Int?
-            var created, modified, sortOrder: Int
+            public var id: Int
+            public var name: String
+            public var roomID: Int
+            public var view: [JSONAny]
+            public var type, baseType: String
+            public var interfaces: [String]
+            public var enabled, visible, isPlugin: Bool
+            public var parentId: Int
+            public var viewXml, hasUIView, configXml: Bool
+            public var properties: PropertiesSimple
+            public var actions: [String: Int]
+            public var remoteGatewayId: Int?
+            public var created, modified, sortOrder: Int
             
             public static func == (lhs: DeviceSimple, rhs: DeviceSimple) -> Bool {
                 return (lhs.id == rhs.id)
@@ -730,10 +730,10 @@ public extension HC3Utilities {
         
         // MARK: - GlobalVariable
         public struct GlobalVariable: Codable, Hashable {
-            var name, value: String
-            var readOnly, isEnum: Bool
-            var enumValues: [String]
-            var created, modified: Int
+            public var name, value: String
+            public var readOnly, isEnum: Bool
+            public var enumValues: [String]
+            public var created, modified: Int
         }
     }
 }
