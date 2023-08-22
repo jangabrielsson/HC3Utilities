@@ -91,7 +91,7 @@ public class FibaroAPI {
 public struct HC3Utilities {
     var baseURL: String
     var creds: String
-    lazy var fibaro: FibaroAPI = FibaroAPI(hc3: self)
+    public lazy var fibaro: FibaroAPI = FibaroAPI(hc3: self)
     
     public init(ip: String, user: String, password: String) {
         let loginData = "\(user):\(password)"
